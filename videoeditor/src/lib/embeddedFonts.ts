@@ -1,0 +1,23 @@
+/** SIL OFL faces bundled with the app. No Google Fonts CDN. */
+
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/500.css";
+import "@fontsource/dm-sans/600.css";
+import "@fontsource/dm-sans/700.css";
+
+import "@fontsource/fraunces/500.css";
+import "@fontsource/fraunces/700.css";
+
+import "@fontsource/noto-sans/400.css";
+import "@fontsource/noto-sans/500.css";
+import "@fontsource/noto-sans/700.css";
+
+import "@fontsource/noto-sans-sc/chinese-simplified-400.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-500.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-700.css";
+
+import "@fontsource/noto-serif/400.css";
+import "@fontsource/noto-serif/700.css";
+
+import "@fontsource/noto-serif-sc/chinese-simplified-400.css";
+import "@fontsource/noto-serif-sc/chinese-simplified-700.css";

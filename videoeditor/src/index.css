@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #10120e;
+  color: #ece7db;
+}
+
+body {
+  font-family: "DM Sans", "Noto Sans SC", "Noto Sans";
+  overflow: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a4134;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-md border border-ink-600 bg-ink-900 px-2 py-1.5 text-xs text-ink-100 outline-none transition;
+  }
+
+  .field:focus {
+    @apply border-brass/70 ring-1 ring-brass/40;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-ink-600 bg-ink-700 px-2.5 py-1.5 text-xs font-medium text-ink-100 transition hover:bg-ink-600 disabled:opacity-40;
+  }
+
+  .btn-accent {
+    @apply border-copper/40 bg-copper text-paper hover:bg-[#d36a32];
+  }
+
+  .btn-ghost {
+    @apply border-transparent bg-transparent hover:bg-ink-700;
+  }
+}

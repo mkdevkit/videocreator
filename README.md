@@ -6,11 +6,14 @@
 | --- | --- |
 | [`web2video`](./web2video) | 网页场景编辑器（Web / Tauri）：口播列表、元件动效（口播/场景/固定时间）、千问配音、按语言导出 |
 | [`script2video`](./script2video) | 脚本工作台（Web / Tauri）：口播驱动或脚本驱动、DeepSeek、翻译、千问配音（角色/音色管理）、画面跟节拍走 |
+| [`videoeditor`](./videoeditor) | 分类型多轨剪辑器（Web / Tauri）：文字/调节/叠加/主视频/原声/配音/音乐/音效，预览导出同一合成器 |
 
 ```bash
 cd web2video       # 网页场景编辑器
 # 或
 cd script2video    # 脚本 / 口播 / 翻译 / 配音
+# 或
+cd videoeditor     # 多轨剪辑（端口 5175）
 npm install
 npm run dev        # 浏览器
 npm run tauri:dev  # 桌面（需 Rust）
@@ -18,22 +21,22 @@ npm run tauri:dev  # 桌面（需 Rust）
 
 建议 **Chrome 或 Edge**。开发时必须用 `npm run dev`，本机 Vite 插件会代理千问 TTS、LLM 和 Edge 翻译。密钥只存在本机 `localStorage`，不进工程文件。
 
-两个工具的界面与成片字体均为 **SIL OFL（免费可商用）**，字文件随工具打包，默认与回落都是 Noto 等开源字体，不走系统字体、也不依赖 Google Fonts。明细见 [`web2video/README.md`](./web2video/README.md#字体) 与 [`script2video/README.md`](./script2video/README.md#字体)。
+两个工具的界面与成片字体均为 **SIL OFL（免费可商用）**，字文件随工具打包，默认与回落都是 Noto 等开源字体，不走系统字体、也不依赖 Google Fonts。明细见各工具 README。
 
 ## 预览和导出
 
 **每个工具内部：所见即所导。** 预览和导出走同一条画面路径，字体不会预览一套、导出另一套。导出前都会等打包字体就绪再录。
 
-差别主要是壳：预览会缩放、可点选；导出用成片分辨率、不可编辑。烧录字幕两边都默认关，只在导出窗勾了才画进成片（预览条可以单独开）。
+差别主要是壳：预览会缩放、可点选；导出用成片分辨率、不可编辑。烧录字幕默认关，只在导出窗勾了才画进成片（预览仍可显示文字）。
 
-**两个工具之间：** 字体政策对齐（SIL OFL、随工具打包、栈末回落 Noto、不走系统字体）。`fontStack` / `waitStageFonts` 是同一套思路，各写各的。画面不是共用一套渲染。
+**三个工具之间：** 字体政策对齐（SIL OFL、随工具打包、栈末回落 Noto、不走系统字体）。`waitStageFonts` 是同一套思路，各写各的。画面不是共用一套渲染。
 
-| | Web2Video | Script2Video |
-| --- | --- | --- |
-| 画什么 | 版面元件 | 舞台 HTML + GSAP |
-| 默认字 | 片级「元件默认」+ 字幕 | 工程 `stageTheme`（根继承 / 正文 / 标题 / 字幕） |
-| 覆盖 | 检视里改该元件 | HTML/CSS 或 `var(--stage-*)` |
-| 预览 = 导出 | `StageLayers` → `StageView` | `mountStage` + `stageTexts` + GSAP |
+| | Web2Video | Script2Video | VideoEditor |
+| --- | --- | --- | --- |
+| 画什么 | 版面元件 | 舞台 HTML + GSAP | 时间轴片段（视频/图/字） |
+| 默认字 | 片级「元件默认」+ 字幕 | 工程 `stageTheme` | 文字轨 Noto |
+| 覆盖 | 检视里改该元件 | HTML/CSS 或 `var(--stage-*)` | 检视里改该片段 |
+| 预览 = 导出 | `StageLayers` → `StageView` | `mountStage` + `stageTexts` + GSAP | `drawFrame` |
 
 Script2Video 引擎不是 GSAP（Remotion / Manim）时，工作台预览/导出可能只是节拍卡，完整画面要到该引擎里渲。
 
