@@ -1,6 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Script2Video",
+  "mainBinaryName": "Script2Video",
   "version": "0.1.0",
   "identifier": "com.web2video.script2video",
   "build": {

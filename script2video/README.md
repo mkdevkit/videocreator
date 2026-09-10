@@ -24,7 +24,7 @@ npm run dev
 cd script2video
 npm install
 npm run tauri:dev     # 开发：嵌同一套前端
-npm run tauri:build   # 安装包
+npm run tauri:build   # 安装包；可执行文件为 Script2Video.exe，图标来自 favicon
 ```
 
 | | Web | Tauri |

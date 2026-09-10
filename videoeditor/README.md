@@ -10,7 +10,8 @@ Web / Tauri 剪辑器。时间轴对齐**剪映分类型多轨**（文字 / 调�
 cd videoeditor
 npm install
 npm run dev        # http://localhost:5175
-npm run tauri:dev  # 桌面（需 Rust）
+npm run tauri:dev   # 桌面（需 Rust）
+npm run tauri:build # 安装包；可执行文件为 VideoEditor.exe，图标来自 favicon
 ```
 
 建议 **Chrome 或 Edge**。第一期适合短片；叠加轨同时可见建议不超过 2 路。

@@ -1,5 +1,5 @@
 [package]
-name = "app"
+name = "videoeditor"
 version = "0.1.0"
 description = "videoeditor desktop"
 authors = ["you"]
@@ -7,6 +7,11 @@ license = ""
 repository = ""
 edition = "2021"
 rust-version = "1.77.2"
+default-run = "VideoEditor"
+
+[[bin]]
+name = "VideoEditor"
+path = "src/main.rs"
 
 [lib]
 name = "app_lib"

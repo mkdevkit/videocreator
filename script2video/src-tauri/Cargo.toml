@@ -1,5 +1,5 @@
 [package]
-name = "app"
+name = "script2video"
 version = "0.1.0"
 description = "script2video desktop"
 authors = ["you"]
@@ -7,6 +7,11 @@ license = ""
 repository = ""
 edition = "2021"
 rust-version = "1.77.2"
+default-run = "Script2Video"
+
+[[bin]]
+name = "Script2Video"
+path = "src/main.rs"
 
 [lib]
 name = "app_lib"
